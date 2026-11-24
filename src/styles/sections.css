@@ -58,18 +58,16 @@
 
 .hero__title {
   font-family: var(--f-display); font-weight: 700;
-  font-size: clamp(3.6rem, 13.2vw, 13.5rem); line-height: 0.84; letter-spacing: -0.055em;
+  font-size: clamp(2.55rem, 10.2vw, 10.5rem); line-height: 0.92; letter-spacing: -0.05em;
   font-variation-settings: 'wdth' 85; transform-origin: left bottom; will-change: transform;
+  white-space: nowrap;
 }
-.hero__title .line { display: block; overflow: hidden; padding: 0.04em 0 0.08em; margin-bottom: -0.08em; }
-.hero__title .line__b { font-family: var(--f-serif); font-style: italic; font-weight: 400; letter-spacing: -0.03em; color: var(--accent); padding-right: 0.06em; }
-.hero__title .line--sub {
-  color: var(--ink);
-  paint-order: stroke fill;
-  -webkit-text-stroke: 2.5px rgba(236, 231, 221, 0.62);
-}
+.hero__title .line { display: block; overflow: hidden; padding: 0.04em 0 0.1em; margin-bottom: -0.06em; }
+.hero__title .line__b { font-family: var(--f-serif); font-style: italic; font-weight: 400; letter-spacing: -0.03em; color: var(--accent); padding-right: 0.04em; }
+.hero__title .line__gap { display: inline-block; width: 0.2em; }
+.hero__title .line__init { color: var(--bone); }
 .hero__title .char { display: inline-block; will-change: transform; }
-.hero__title .char--dot { color: var(--accent); -webkit-text-stroke: 0; }
+.hero__title .char--dot { color: var(--accent); }
 
 .hero__tag { font-size: clamp(1.5rem, 3vw, 2.6rem); line-height: 1.1; color: var(--bone); max-width: 22ch; }
 .hero__tag em { color: var(--accent); }

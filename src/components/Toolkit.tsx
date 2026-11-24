@@ -34,7 +34,7 @@ export default function Toolkit() {
     <section id="toolkit" className="section toolkit" ref={root}>
       <header className="sec-head">
         <span className="mono">SC.05</span>
-        <span className="mono">Toolkit</span>
+        <span className="mono">Tech Stack</span>
       </header>
 
       <div className="marquee" aria-hidden="true">
@@ -53,7 +53,7 @@ export default function Toolkit() {
       <div className="kit">
         <div className="kit__lead">
           <h2 className="display">
-            The camera <span className="serif">kit.</span>
+            My tech <span className="serif">stack.</span>
           </h2>
           <p className="muted">
             Languages, frameworks and tools I reach for — from on-device models to Gradle build variants.

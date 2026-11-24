@@ -74,11 +74,11 @@ export default function Hud({ ready }: { ready: boolean }) {
 
         <nav className="hud__item hud__nav mono" aria-label="Primary">
           <a href="#scenes" onClick={(e) => { e.preventDefault(); go('scenes') }}>Work</a>
-          <a href="#archive" onClick={(e) => { e.preventDefault(); go('archive') }}>Archive</a>
-          <a href="#toolkit" onClick={(e) => { e.preventDefault(); go('toolkit') }}>Toolkit</a>
+          <a href="#archive" onClick={(e) => { e.preventDefault(); go('archive') }}>Projects</a>
+          <a href="#toolkit" onClick={(e) => { e.preventDefault(); go('toolkit') }}>Tech Stack</a>
           <a href="#credits" onClick={(e) => { e.preventDefault(); go('credits') }}>Contact</a>
           <a href={profile.resume} target="_blank" rel="noreferrer" className="hud__cv">
-            Résumé ↗
+            Resume ↗
           </a>
         </nav>
 
@@ -116,7 +116,7 @@ export default function Hud({ ready }: { ready: boolean }) {
           ))}
         </ol>
         <a className="mono" href={profile.resume} target="_blank" rel="noreferrer" tabIndex={menu ? 0 : -1}>
-          Download résumé ↗
+          Download Resume ↗
         </a>
       </div>
     </>

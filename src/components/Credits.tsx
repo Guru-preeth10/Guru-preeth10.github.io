@@ -75,7 +75,7 @@ export default function Credits() {
       <ul className="channels mono">
         <li><a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a></li>
         <li><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a></li>
-        <li><a href={profile.resume} target="_blank" rel="noreferrer">Résumé (PDF) ↗</a></li>
+        <li><a href={profile.resume} target="_blank" rel="noreferrer">Resume (PDF) ↗</a></li>
         <li><a href={`tel:${profile.phone.replace(/\s/g, '')}`}>{profile.phone}</a></li>
       </ul>
 

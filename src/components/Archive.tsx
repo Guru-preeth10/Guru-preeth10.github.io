@@ -23,11 +23,11 @@ export default function Archive() {
     <section id="archive" className="section archive" ref={root}>
       <header className="sec-head">
         <span className="mono">SC.04</span>
-        <span className="mono">Archive</span>
+        <span className="mono">Projects</span>
       </header>
       <div className="archive__top">
         <h2 className="display">
-          B-roll <span className="serif">&amp; experiments.</span>
+          Projects <span className="serif">&amp; experiments.</span>
         </h2>
         <a className="link-arrow" href={profile.github} target="_blank" rel="noreferrer">
           All repositories on GitHub <span aria-hidden="true">↗</span>

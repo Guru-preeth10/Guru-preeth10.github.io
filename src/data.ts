@@ -200,8 +200,8 @@ export const sections = [
   { id: 'top', label: 'Opening' },
   { id: 'logline', label: 'Logline' },
   { id: 'scenes', label: 'Selected Work' },
-  { id: 'archive', label: 'Archive' },
-  { id: 'toolkit', label: 'Toolkit' },
+  { id: 'archive', label: 'Projects' },
+  { id: 'toolkit', label: 'Tech Stack' },
   { id: 'circuit', label: 'Festival Circuit' },
   { id: 'credits', label: 'End Credits' },
 ]

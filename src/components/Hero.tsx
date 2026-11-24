@@ -43,9 +43,11 @@ export default function Hero({ ready }: { ready: boolean }) {
         </p>
 
         <h1 className="hero__title" aria-label={profile.name}>
-          <span className="line">{split(profile.first)}<span className="line__b">{split(profile.last)}</span></span>
-          <span className="line line--sub">
-            {split('H')}
+          <span className="line">
+            {split(profile.first)}
+            <span className="line__b">{split(profile.last)}</span>
+            <span className="line__gap" aria-hidden="true">&nbsp;</span>
+            <span className="line__init">{split('H')}</span>
             <span className="char char--dot" aria-hidden="true">.</span>
           </span>
         </h1>
