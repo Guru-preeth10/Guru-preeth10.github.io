@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import Preloader from './components/Preloader'
 import Hud from './components/Hud'
+import PixelBot from './components/PixelBot'
 import Hero from './components/Hero'
 import Logline from './components/Logline'
 import Scenes from './components/Scenes'
@@ -32,6 +33,7 @@ export default function App() {
       <div className="grain" aria-hidden="true" />
       {!ready && <Preloader onDone={onDone} />}
       <Hud ready={ready} />
+      {ready && <PixelBot />}
       <main id="main" className={ready ? 'is-ready' : ''}>
         <Hero ready={ready} />
         <Logline />

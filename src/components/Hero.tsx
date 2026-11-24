@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type PointerEvent } from 'react'
 import ShaderField from './ShaderField'
 import { profile } from '../data'
 import { gsap, scrollToId } from '../lib/motion'
@@ -12,6 +12,7 @@ const split = (word: string) =>
 
 export default function Hero({ ready }: { ready: boolean }) {
   const root = useRef<HTMLElement>(null)
+  const cardRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -23,9 +24,9 @@ export default function Hero({ ready }: { ready: boolean }) {
         .to('.hero [data-rise]', { autoAlpha: 1, y: 0, duration: 1, ease: 'power3.out', stagger: 0.08 }, '-=0.8')
 
       // camera "dolly out" as you leave the opening shot
-      gsap.to('.hero__title', {
-        yPercent: -18,
-        scale: 0.94,
+      gsap.to('.hero__top', {
+        yPercent: -14,
+        scale: 0.96,
         opacity: 0.25,
         ease: 'none',
         scrollTrigger: { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true },
@@ -34,27 +35,70 @@ export default function Hero({ ready }: { ready: boolean }) {
     return () => ctx.revert()
   }, [ready])
 
+  const onCardMove = (e: PointerEvent<HTMLElement>) => {
+    const el = cardRef.current
+    if (!el) return
+    const r = el.getBoundingClientRect()
+    const nx = (e.clientX - r.left) / r.width - 0.5
+    const ny = (e.clientY - r.top) / r.height - 0.5
+    el.style.setProperty('--rx', `${(-ny * 9).toFixed(2)}deg`)
+    el.style.setProperty('--ry', `${(nx * 11).toFixed(2)}deg`)
+  }
+
+  const onCardLeave = () => {
+    const el = cardRef.current
+    if (!el) return
+    el.style.setProperty('--rx', '0deg')
+    el.style.setProperty('--ry', '0deg')
+  }
+
   return (
     <section id="top" className="hero" ref={root} aria-label="Introduction">
       <ShaderField />
       <div className="hero__frame">
-        <p className="hero__eyebrow mono" data-rise>
-          <span className="dot" /> AI / ML Engineer — Builder — Storyteller
-        </p>
+        <div className="hero__top">
+          <div className="hero__lead">
+            <p className="hero__eyebrow mono" data-rise>
+              <span className="dot" /> AI / ML Engineer — Builder — Storyteller
+            </p>
 
-        <h1 className="hero__title" aria-label={profile.name}>
-          <span className="line">
-            {split(profile.first)}
-            <span className="line__b">{split(profile.last)}</span>
-            <span className="line__gap" aria-hidden="true">&nbsp;</span>
-            <span className="line__init">{split('H')}</span>
-            <span className="char char--dot" aria-hidden="true">.</span>
-          </span>
-        </h1>
+            <h1 className="hero__title" aria-label={profile.name}>
+              <span className="line">
+                {split(profile.first)}
+                <span className="line__b">{split(profile.last)}</span>
+                <span className="line__gap" aria-hidden="true">&nbsp;</span>
+                <span className="line__init">{split('H')}</span>
+                <span className="char char--dot" aria-hidden="true">.</span>
+              </span>
+            </h1>
 
-        <p className="hero__tag serif" data-rise>
-          Systems that <em>think</em>. Frames that <em>feel</em>.
-        </p>
+            <p className="hero__tag serif" data-rise>
+              Systems that <em>think</em>. Frames that <em>feel</em>.
+            </p>
+          </div>
+
+          <figure
+            ref={cardRef}
+            className="hero__portrait"
+            data-rise
+            onPointerMove={onCardMove}
+            onPointerLeave={onCardLeave}
+          >
+            <span className="portrait__glow" aria-hidden="true" />
+            <span className="portrait__frame" aria-hidden="true" />
+            <span className="portrait__hud mono" aria-hidden="true">
+              <i /> AF-C · 50MM
+            </span>
+            <img
+              src="/portrait.webp"
+              alt="Gurupreeth H"
+              width={400}
+              height={420}
+              fetchPriority="high"
+              decoding="async"
+            />
+          </figure>
+        </div>
 
         <div className="hero__foot">
           <dl className="hero__meta" data-rise>
